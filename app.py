@@ -41,8 +41,14 @@ def analyze():
     result = response.choices[0].message.content
     return jsonify({'response': result})
 
+# if __name__ == '__main__':
+    # app.run(debug=True)
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Render provides PORT
+    app.run(debug=True, host="0.0.0.0", port=port)
+
 
 
 # print(chat_completion.choices[0].message.content)
